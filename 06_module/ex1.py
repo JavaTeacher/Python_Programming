@@ -37,7 +37,7 @@
 
                   # 현재 실행 중인 파이썬 인터프리터의 버전
                  # 현재 실행 중인 운영체제 플랫폼 식별자
-                     # 파이썬 라이브러리 설치 디렉토리 목록
+                     # 파이썬 라이브러리 검색 디렉토리 목록
 
 # 표준 라이브러리 설치 경로: C:\Users\<user_name>\AppData\Local\Programs\Python\Python314\Lib
 # 써드 파티 설치 경로: C:\Users\<user_name>\AppData\Local\Programs\Python\Python314\Lib\site-packages
