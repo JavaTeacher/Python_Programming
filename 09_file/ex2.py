@@ -39,7 +39,7 @@ import json
 data = {
     "name": "뽀로로",
     "age": 17,
-    "score": [100, 90],
+    "scores": [100, 90],
     "subjects": ["파이썬", "컴구"],
 }
 
