@@ -21,10 +21,10 @@ from dotenv import load_dotenv
 
 # 기준일자, 기준시간 가져오기
 now = datetime.now()
-one_hour_age = now - timedelta(hours=1)
+before_one_hour = now - timedelta(hours=1)
 
 base_date = now.strftime("%Y%m%d")
-base_time = one_hour_age.strftime("%H00")
+base_time = before_one_hour.strftime("%H00")
 # print(f"기준일시: {base_date} {base_time}")
 
 
