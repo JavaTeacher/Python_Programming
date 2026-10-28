@@ -64,7 +64,7 @@ st.title("Streamlit 기본 문법")
 
 # st.dataframe(df)
 # st.table(df)
-# st.json({"name": "홍길동", "age": 17})
+# st.json(df.to_dict())
 
 # st.divider()
 
