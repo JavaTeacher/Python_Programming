@@ -52,14 +52,14 @@ try:
         with st.spinner("분류하는 중..."):
             label, score = ai.classify(image)        # 확률이 가장 높은 결과
 
-            st.subheader(f"분류 결과 : {characters[label]} ({score:.0%})")
+        st.subheader(f"분류 결과 : {characters[label]} ({score:.0%})")
 
-            if st.button("DB 저장하기"):
-                file = f"{label}_{datetime.now():%Y%m%d_%H%M%S}.jpg"
-                image.save(os.path.join(CAPTURE_DIR, file))
+        if st.button("DB 저장하기"):
+            file = f"{label}_{datetime.now():%Y%m%d_%H%M%S}.jpg"
+            image.save(os.path.join(CAPTURE_DIR, file))
 
-                db.save_detection(label, score, file)
-                st.success("저장했습니다.")
+            db.save_detection(label, score, file)
+            st.success("저장했습니다.")
 
 
 # ===========================================================
