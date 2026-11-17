@@ -86,8 +86,8 @@ try:
                 if not content:
                     st.warning("리뷰 내용을 입력해 주세요.")
                 else:
-                    # AI 긍정/부정 분류
-                    label, score = review_ai.classify(content)
+                    with st.spinner("분류하는 중..."):
+                        label, score = review_ai.classify(content)
 
                     # 리뷰 저장
                     review_db.save_review(ymd, content, label, score)
