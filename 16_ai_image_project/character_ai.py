@@ -2,6 +2,7 @@
 # - 파인 튜닝한 이미지 분류 모델로 이미지를 뽀로로 / 크롱 / 포비로 분류
 
 import os
+import streamlit as st
 from transformers import pipeline
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -9,8 +10,13 @@ MODEL_DIR = os.path.join(BASE_DIR, "model")
 
 # ===========================================================
 #  1. 준비하기
+#  - @st.cache_resource : 모델을 처음 사용할 때 한 번만 불러오고,
+#    이후에는 (재실행, 다른 세션에서도) 같은 객체를 재사용
 # ===========================================================
-classifier = None      # 모델은 처음 사용할 때 한 번만 불러옴
+
+@st.cache_resource(show_spinner="모델 불러오는 중...")
+def get_classifier():
+    return pipeline("image-classification", model=MODEL_DIR)
 
 MIN_SCORE = 0.6
 
@@ -21,8 +27,5 @@ MIN_SCORE = 0.6
 # ===========================================================
 
 def classify(image):
-    global classifier
-    if classifier is None:
-        classifier = pipeline("image-classification", model=MODEL_DIR)
-    result = classifier(image, top_k=1)[0]
+    result = get_classifier()(image, top_k=1)[0]
     return result["label"], result["score"]
