@@ -24,7 +24,9 @@ import character_db as db
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-CAPTURE_DIR = os.path.join(DATA_DIR, "captures")
+CAPTURE_DIR = os.path.join(DATA_DIR, "captures")        # 사진 저장 폴더
+
+os.makedirs(CAPTURE_DIR, exist_ok=True)
 
 characters = {"pororo": "뽀로로", "crong": "크롱", "poby": "포비"}
 
