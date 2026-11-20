@@ -14,6 +14,9 @@ DB_PATH = os.path.join(BASE_DIR, "data", "review.db")
 def init_db():
     conn = None
     try:
+        # data 디렉토리가 없으면 자동 생성 (이미 있으면 그대로 사용)
+        os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+
         conn = sqlite3.connect(DB_PATH)
         cur = conn.cursor()
         cur.execute("""
